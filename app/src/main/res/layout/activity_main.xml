@@ -1,18 +1,128 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+<!--Linear Layout created for entire screen -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:gravity="center"
+    android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <!--Linear Layout created for Text view for team names -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="63dp"
+        android:gravity="center">
+
+        <!--Text view created for team names -->
+        <TextView
+            android:id="@+id/teamA_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#E14545"
+            android:text="Team A"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="35dp" />
+
+        <TextView
+            android:id="@+id/teamB_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#E14545"
+            android:text="Team B"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="35dp" />
+
+    </LinearLayout>
+
+    <!--Linear Layout created for Text view for team scores and spinner -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="53dp"
+        android:gravity="center">
+
+        <!--Text view created for team scores -->
+        <TextView
+            android:id="@+id/teamA_score"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="0"
+            android:textSize="35dp"/>
+
+        <TextView
+            android:id="@+id/teamB_score"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="0"
+            android:textSize="35dp"/>
+
+
+    </LinearLayout>
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:gravity="center">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <Spinner
+            android:id="@+id/score_increment"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_margin="30dp"
+            android:entries="@array/scoring_options" />
+
+    </LinearLayout>
+    <!--Linear Layout created for Buttons -->
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <!--Toggle button is used to switch teams -->
+
+        <Switch
+            android:id="@+id/team_switch_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Switch Teams"
+            tools:ignore="TouchTargetSizeCheck" />
+
+    </LinearLayout>
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <!--Buttons to increment or decrement scores -->
+        <Button
+            android:id="@+id/score_increase"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Increment"
+            android:padding="10dp"
+            android:layout_margin="20dp"
+            />
+
+        <Button
+            android:id="@+id/score_decrease"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Decrement"
+            android:padding="10dp"
+            android:layout_margin="20dp" />
+
+    </LinearLayout>
+
+
+</LinearLayout>
