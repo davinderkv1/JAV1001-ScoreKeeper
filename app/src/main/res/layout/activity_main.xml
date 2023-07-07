@@ -109,18 +109,19 @@
             android:id="@+id/score_increase"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Increment"
-            android:padding="10dp"
             android:layout_margin="20dp"
-            />
+            android:padding="10dp"
+            android:text="Increment"
+            android:textSize="24sp" />
 
         <Button
             android:id="@+id/score_decrease"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Decrement"
+            android:layout_margin="20dp"
             android:padding="10dp"
-            android:layout_margin="20dp" />
+            android:text="Decrement"
+            android:textSize="24sp" />
 
     </LinearLayout>
 
