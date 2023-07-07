@@ -1,68 +1,73 @@
 package com.scorekeeper.app
-/* I have chose two teams team a and team b, scores can be increased from 1 to 6 through */
+
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Spinner
-import android.widget.Switch
 import android.widget.TextView
-import android.widget.ToggleButton
-import com.scorekeeper.app.R.*
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var teamAScoreTextView: TextView
+    private lateinit var teamBScoreTextView: TextView
+    private lateinit var scoreSelectorSpinnerA: Spinner
+    private lateinit var scoreSelectorSpinnerB: Spinner
+    private lateinit var scoreIncreaseButtonA: Button
+    private lateinit var scoreIncreaseButtonB: Button
+    private lateinit var scoreDecreaseButtonA: Button
+    private lateinit var scoreDecreaseButtonB: Button
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(layout.activity_main)
+        setContentView(R.layout.activity_main)
 
-        val teamAScore = findViewById<TextView>(id.teamA_score)
-        val teamBScore = findViewById<TextView>(id.teamB_score)
-        val scoreSelector = findViewById<Spinner>(id.score_increment)
-        val scoreIncrease = findViewById<Button>(id.score_increase)
-        val scoreDecrease = findViewById<Button>(id.score_decrease)
-        val teamToggleButton = findViewById<Switch>(id.team_switch_button)
+        // References to UI elements
+        teamAScoreTextView = findViewById(R.id.teamA_score)
+        teamBScoreTextView = findViewById(R.id.teamB_score)
+        scoreSelectorSpinnerA = findViewById(R.id.score_incrementA)
+        scoreSelectorSpinnerB = findViewById(R.id.score_incrementB)
+        scoreIncreaseButtonA = findViewById(R.id.teamA_increment)
+        scoreIncreaseButtonB = findViewById(R.id.teamB_increment)
+        scoreDecreaseButtonA = findViewById(R.id.teamA_decrement)
+        scoreDecreaseButtonB = findViewById(R.id.teamB_decrement)
 
         // Setting initial scores to 0
-        teamAScore.text = "0"
-        teamBScore.text = "0"
-        var currentTeam = 1
+        teamAScoreTextView.text = "0"
+        teamBScoreTextView.text = "0"
 
-
-        // Added code code for toggle listener
-        val onCheckedChangeListener = teamToggleButton.setOnCheckedChangeListener { _, isChecked ->
-            currentTeam = if (isChecked) 2 else 1
+        // OnClickListener to increase the scores for Team A
+        scoreIncreaseButtonA.setOnClickListener {
+            val scoreIncrement = scoreSelectorSpinnerA.selectedItem.toString().toInt()
+            val currentScore = teamAScoreTextView.text.toString().toInt()
+            val newScore = currentScore + scoreIncrement
+            teamAScoreTextView.text = newScore.toString()
         }
-        // OnclickListeners to increase the values
-        scoreIncrease.setOnClickListener {
-            val scoreIncrement = scoreSelector.selectedItem.toString().toInt()
-            if (currentTeam == 1) {
-                val currentScore = teamAScore.text.toString().toInt()
-                val newScore = currentScore + scoreIncrement
-                teamAScore.text = newScore.toString()
-            } else {
-                val scoreIncrement = scoreSelector.selectedItem.toString().toInt()
-                val currentScore = teamBScore.text.toString().toInt()
-                val newScore = currentScore + scoreIncrement
-                teamBScore.text = newScore.toString()
+
+        // OnClickListener to decrease the scores for Team A
+        scoreDecreaseButtonA.setOnClickListener {
+            val scoreIncrement = scoreSelectorSpinnerA.selectedItem.toString().toInt()
+            val currentScore = teamAScoreTextView.text.toString().toInt()
+            val newScore = currentScore - scoreIncrement
+            if (newScore >= 0) {
+                teamAScoreTextView.text = newScore.toString()
             }
         }
-        // OnclickListeners to decrease the values
-        scoreDecrease.setOnClickListener {
-            val scoreIncrement = scoreSelector.selectedItem.toString().toInt()
-            if (currentTeam == 1) {
-                val scoreIncrement = scoreSelector.selectedItem.toString().toInt()
-                val currentScore = teamAScore.text.toString().toInt()
-                val newScore = currentScore - scoreIncrement
-                if (newScore >= 0) {
-                    teamAScore.text = newScore.toString()
-                }
-            } else {
-                val scoreIncrement = scoreSelector.selectedItem.toString().toInt()
-                val currentScore = teamBScore.text.toString().toInt()
-                val newScore = currentScore - scoreIncrement
-                if (newScore >= 0) {
-                    teamBScore.text = newScore.toString()
-                }
+
+        // OnClickListener to increase the scores for Team B
+        scoreIncreaseButtonB.setOnClickListener {
+            val scoreIncrement = scoreSelectorSpinnerB.selectedItem.toString().toInt()
+            val currentScore = teamBScoreTextView.text.toString().toInt()
+            val newScore = currentScore + scoreIncrement
+            teamBScoreTextView.text = newScore.toString()
+        }
+
+        // OnClickListener to decrease the scores for Team B
+        scoreDecreaseButtonB.setOnClickListener {
+            val scoreIncrement = scoreSelectorSpinnerB.selectedItem.toString().toInt()
+            val currentScore = teamBScoreTextView.text.toString().toInt()
+            val newScore = currentScore - scoreIncrement
+            if (newScore >= 0) {
+                teamBScoreTextView.text = newScore.toString()
             }
         }
     }

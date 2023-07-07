@@ -65,61 +65,82 @@
         android:layout_width="match_parent"
         android:layout_height="50dp" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center">
-
-        <!-- Spinner for scoring options -->
-        <Spinner
-            android:id="@+id/score_increment"
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:layout_margin="30dp"
-            android:entries="@array/scoring_options" />
-    </LinearLayout>
 
     <!-- Linear Layout for buttons -->
     <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-        <!-- Toggle button to switch teams -->
-        <Switch
-            android:id="@+id/team_switch_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Switch Teams"
-            tools:ignore="TouchTargetSizeCheck" />
-    </LinearLayout>
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="50dp" />
-
-    <LinearLayout
         android:id="@+id/linearLayout1"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
-        <!-- Buttons to increment or decrement scores -->
-        <Button
-            android:id="@+id/score_increase"
+        <!-- Buttons for the first team -->
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:padding="10dp"
-            android:text="Increment"
-            android:textSize="24sp" />
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/score_decrease"
+            <Button
+                android:id="@+id/teamA_increment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:background="#309AED"
+                android:padding="10dp"
+                android:text="+"
+                android:textSize="24sp" />
+            <Spinner
+                android:id="@+id/score_incrementA"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_margin="30dp"
+                android:entries="@array/scoring_options" />
+
+            <Button
+                android:id="@+id/teamA_decrement"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:background="#309AED"
+                android:padding="10dp"
+                android:text="-"
+                android:textSize="24sp" />
+
+        </LinearLayout>
+
+        <!-- Buttons for the second team -->
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:padding="10dp"
-            android:text="Decrement"
-            android:textSize="24sp" />
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/teamB_increment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:background="#309AED"
+                android:padding="10dp"
+                android:text="+"
+                android:textSize="24sp" />
+            <Spinner
+                android:id="@+id/score_incrementB"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_margin="30dp"
+                android:entries="@array/scoring_options" />
+
+            <Button
+                android:id="@+id/teamB_decrement"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:background="#309AED"
+                android:padding="10dp"
+                android:text="-"
+                android:textSize="24sp" />
+
+        </LinearLayout>
+
     </LinearLayout>
+
 </LinearLayout>
