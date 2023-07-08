@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
+    android:background="#FFD8D3D3"
+    android:gravity="top|center"
     android:orientation="vertical">
 
     <!-- Linear Layout for team names -->
@@ -48,17 +49,17 @@
             android:id="@+id/teamA_score"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
             android:text="0"
-            android:textSize="35dp"/>
+            android:textAlignment="center"
+            android:textSize="35dp" />
 
         <TextView
             android:id="@+id/teamB_score"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
             android:text="0"
-            android:textSize="35dp"/>
+            android:textAlignment="center"
+            android:textSize="35dp" />
     </LinearLayout>
 
     <Space
@@ -77,7 +78,9 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:gravity="top|center"
+            >
 
             <Button
                 android:id="@+id/teamA_increment"
@@ -88,6 +91,7 @@
                 android:padding="10dp"
                 android:text="+"
                 android:textSize="24sp" />
+
             <Spinner
                 android:id="@+id/score_incrementA"
                 android:layout_width="wrap_content"
@@ -111,7 +115,8 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:gravity="top|center">
 
             <Button
                 android:id="@+id/teamB_increment"
@@ -122,6 +127,7 @@
                 android:padding="10dp"
                 android:text="+"
                 android:textSize="24sp" />
+
             <Spinner
                 android:id="@+id/score_incrementB"
                 android:layout_width="wrap_content"
