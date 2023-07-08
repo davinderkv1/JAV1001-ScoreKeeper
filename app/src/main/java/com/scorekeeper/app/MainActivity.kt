@@ -8,28 +8,19 @@ import android.widget.TextView
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var teamAScoreTextView: TextView
-    private lateinit var teamBScoreTextView: TextView
-    private lateinit var scoreSelectorSpinnerA: Spinner
-    private lateinit var scoreSelectorSpinnerB: Spinner
-    private lateinit var scoreIncreaseButtonA: Button
-    private lateinit var scoreIncreaseButtonB: Button
-    private lateinit var scoreDecreaseButtonA: Button
-    private lateinit var scoreDecreaseButtonB: Button
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         // References to UI elements
-        teamAScoreTextView = findViewById(R.id.teamA_score)
-        teamBScoreTextView = findViewById(R.id.teamB_score)
-        scoreSelectorSpinnerA = findViewById(R.id.score_incrementA)
-        scoreSelectorSpinnerB = findViewById(R.id.score_incrementB)
-        scoreIncreaseButtonA = findViewById(R.id.teamA_increment)
-        scoreIncreaseButtonB = findViewById(R.id.teamB_increment)
-        scoreDecreaseButtonA = findViewById(R.id.teamA_decrement)
-        scoreDecreaseButtonB = findViewById(R.id.teamB_decrement)
+        val teamAScoreTextView = findViewById<TextView>(R.id.teamA_score)
+        val teamBScoreTextView = findViewById<TextView>(R.id.teamB_score)
+        val scoreSelectorSpinnerA = findViewById<Spinner>(R.id.score_incrementA)
+        val scoreSelectorSpinnerB = findViewById<Spinner>(R.id.score_incrementB)
+        val scoreIncreaseButtonA = findViewById<Button>(R.id.teamA_increment)
+        val scoreIncreaseButtonB = findViewById<Button>(R.id.teamB_increment)
+        val scoreDecreaseButtonA = findViewById<Button>(R.id.teamA_decrement)
+        val scoreDecreaseButtonB = findViewById<Button>(R.id.teamB_decrement)
 
         // Setting initial scores to 0
         teamAScoreTextView.text = "0"
