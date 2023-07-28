@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFD8D3D3"
+    android:background="#62B7FA"
     android:gravity="top|center"
     android:orientation="vertical">
 
@@ -19,22 +19,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="#E14545"
+            style="@style/TeamNameTextView"
             android:text="Team A"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="35dp" />
+            android:textAlignment="center" />
 
         <TextView
             android:id="@+id/teamB_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="#E14545"
+            style="@style/TeamNameTextView"
             android:text="Team B"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="35dp" />
+            android:textAlignment="center" />
 
     </LinearLayout>
 
@@ -49,23 +45,22 @@
             android:id="@+id/teamA_score"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
+            style="@style/TeamScoreTextView"
             android:text="0"
-            android:textAlignment="center"
-            android:textSize="35dp" />
+            android:textAlignment="center" />
 
         <TextView
             android:id="@+id/teamB_score"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
+            style="@style/TeamScoreTextView"
             android:text="0"
-            android:textAlignment="center"
-            android:textSize="35dp" />
+            android:textAlignment="center" />
     </LinearLayout>
 
     <Space
         android:layout_width="match_parent"
         android:layout_height="50dp" />
-
 
     <!-- Linear Layout for buttons -->
     <LinearLayout
@@ -84,30 +79,18 @@
 
             <Button
                 android:id="@+id/teamA_increment"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:background="#309AED"
-                android:padding="10dp"
-                android:text="+"
-                android:textSize="24sp" />
+                style="@style/AppButton"
+                android:text="+" />
 
             <Spinner
                 android:id="@+id/score_incrementA"
-                android:layout_width="wrap_content"
-                android:layout_height="48dp"
-                android:layout_margin="30dp"
+                style="@style/ScoreIncrementSpinner"
                 android:entries="@array/scoring_options" />
 
             <Button
                 android:id="@+id/teamA_decrement"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:background="#309AED"
-                android:padding="10dp"
-                android:text="-"
-                android:textSize="24sp" />
+                style="@style/AppButton"
+                android:text="-" />
 
         </LinearLayout>
 
@@ -120,30 +103,18 @@
 
             <Button
                 android:id="@+id/teamB_increment"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:background="#309AED"
-                android:padding="10dp"
-                android:text="+"
-                android:textSize="24sp" />
+                style="@style/AppButton"
+                android:text="+" />
 
             <Spinner
                 android:id="@+id/score_incrementB"
-                android:layout_width="wrap_content"
-                android:layout_height="48dp"
-                android:layout_margin="30dp"
+                style="@style/ScoreIncrementSpinner"
                 android:entries="@array/scoring_options" />
 
             <Button
                 android:id="@+id/teamB_decrement"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:background="#309AED"
-                android:padding="10dp"
-                android:text="-"
-                android:textSize="24sp" />
+                style="@style/AppButton"
+                android:text="-" />
 
         </LinearLayout>
 
