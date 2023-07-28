@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="Theme.ScoreKeeper" parent="Theme.AppCompat.Light">
-        <!-- Add any custom attributes specific to your app's theme -->
     </style>
     <!-- Style for the team name TextViews -->
     <style name="TeamNameTextView">
         <item name="android:textColor">@color/white</item>
         <item name="android:textSize">35dp</item>
         <item name="android:background">#E145AD</item>
-        <!-- Add other attributes to customize the appearance of the team name TextViews -->
     </style>
 
     <!-- Style for the team score TextViews -->
@@ -17,7 +15,6 @@
         <item name="android:textStyle">bold</item>
         <item name="android:padding">8dp</item>
         <item name="android:textColor">@color/white</item>
-        <!-- Add other attributes to customize the appearance of the team score TextViews -->
     </style>
 
     <!-- Style for the buttons -->
@@ -29,7 +26,6 @@
         <item name="android:textSize">24sp</item>
         <item name="android:textColor">@color/red</item>
         <item name="android:background">#94F489</item>
-        <!-- Add other attributes to customize the appearance of the buttons -->
     </style>
 
     <!-- Style for the score increment Spinner -->
@@ -37,9 +33,8 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">48dp</item>
         <item name="android:layout_margin">30dp</item>
-        <item name="android:textSize">30sp</item>
+        <item name="android:textSize">50sp</item>
         <item name="android:textColor">@color/white</item>
-        <!-- Add other attributes to customize the appearance of the score increment Spinner -->
     </style>
 
 </resources>

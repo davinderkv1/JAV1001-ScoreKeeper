@@ -8,6 +8,6 @@
         <item name="colorSecondaryVariant">@color/night_secondary_variant_color</item>
         <item name="colorOnSecondary">@color/night_text_color</item>
         <item name="android:statusBarColor">@color/night_status_bar_color</item>
-        <!-- Add other night mode theme attributes here -->
+        <item name="android:background">#B6B4B4</item>
     </style>
 </resources>
