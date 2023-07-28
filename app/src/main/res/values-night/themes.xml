@@ -1,7 +1,13 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.ScoreKeeper" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+<resources>
+    <style name="Theme.ScoreKeepingApp.Night" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Night mode theme attributes -->
+        <item name="colorPrimary">@color/night_primary_color</item>
+        <item name="colorPrimaryVariant">@color/night_primary_variant_color</item>
+        <item name="colorOnPrimary">@color/night_text_color</item>
+        <item name="colorSecondary">@color/night_secondary_color</item>
+        <item name="colorSecondaryVariant">@color/night_secondary_variant_color</item>
+        <item name="colorOnSecondary">@color/night_text_color</item>
+        <item name="android:statusBarColor">@color/night_status_bar_color</item>
+        <!-- Add other night mode theme attributes here -->
     </style>
 </resources>
