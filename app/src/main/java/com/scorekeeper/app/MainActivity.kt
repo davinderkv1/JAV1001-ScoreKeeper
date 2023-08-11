@@ -2,9 +2,14 @@ package com.scorekeeper.app
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
+import android.view.View
 import android.widget.Button
 import android.widget.Spinner
 import android.widget.TextView
+import androidx.appcompat.widget.PopupMenu
+import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
 
@@ -21,6 +26,7 @@ class MainActivity : AppCompatActivity() {
         val scoreIncreaseButtonB = findViewById<Button>(R.id.teamB_increment)
         val scoreDecreaseButtonA = findViewById<Button>(R.id.teamA_decrement)
         val scoreDecreaseButtonB = findViewById<Button>(R.id.teamB_decrement)
+        val toolbarMenuIcon = findViewById<View>(R.id.toolbar_menu_icon)
 
         // Setting initial scores to 0
         teamAScoreTextView.text = "0"
@@ -61,5 +67,35 @@ class MainActivity : AppCompatActivity() {
                 teamBScoreTextView.text = newScore.toString()
             }
         }
+
+        // Set click listener on the toolbar menu icon
+        toolbarMenuIcon.setOnClickListener { view ->
+            showOptionsMenu(view)
+        }
+    }
+
+    // Method to show the options menu
+    private fun showOptionsMenu(view: View) {
+        val popupMenu = PopupMenu(this, view)
+        popupMenu.menuInflater.inflate(R.menu.options_menu, popupMenu.menu)
+        popupMenu.setOnMenuItemClickListener { item ->
+            when (item.itemId) {
+                R.id.menu_settings -> {
+                    // Handle opening a new layout with a toggle switch for shared preferences
+                    // Implement this part
+                    true
+                }
+                R.id.menu_about -> {
+                    showToast("Gokul, Kamal, Davinder")
+                    true
+                }
+                else -> false
+            }
+        }
+        popupMenu.show()
+    }
+
+    private fun showToast(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 }
