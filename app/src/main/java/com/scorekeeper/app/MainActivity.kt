@@ -1,9 +1,8 @@
 package com.scorekeeper.app
 
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
 import android.view.View
 import android.widget.Button
 import android.widget.Spinner
@@ -13,80 +12,93 @@ import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var sharedPreferences: SharedPreferences
+    private lateinit var teamAScoreTextView: TextView
+    private lateinit var teamBScoreTextView: TextView
+    private lateinit var scoreSelectorSpinnerA: Spinner
+    private lateinit var scoreSelectorSpinnerB: Spinner
+    private lateinit var scoreIncreaseButtonA: Button
+    private lateinit var scoreIncreaseButtonB: Button
+    private lateinit var scoreDecreaseButtonA: Button
+    private lateinit var scoreDecreaseButtonB: Button
+    private lateinit var toolbarMenuIcon: View
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // References to UI elements
-        val teamAScoreTextView = findViewById<TextView>(R.id.teamA_score)
-        val teamBScoreTextView = findViewById<TextView>(R.id.teamB_score)
-        val scoreSelectorSpinnerA = findViewById<Spinner>(R.id.score_incrementA)
-        val scoreSelectorSpinnerB = findViewById<Spinner>(R.id.score_incrementB)
-        val scoreIncreaseButtonA = findViewById<Button>(R.id.teamA_increment)
-        val scoreIncreaseButtonB = findViewById<Button>(R.id.teamB_increment)
-        val scoreDecreaseButtonA = findViewById<Button>(R.id.teamA_decrement)
-        val scoreDecreaseButtonB = findViewById<Button>(R.id.teamB_decrement)
-        val toolbarMenuIcon = findViewById<View>(R.id.toolbar_menu_icon)
+        sharedPreferences = getSharedPreferences("ScoreKeeperPrefs", MODE_PRIVATE)
 
-        // Setting initial scores to 0
-        teamAScoreTextView.text = "0"
-        teamBScoreTextView.text = "0"
+        teamAScoreTextView = findViewById(R.id.teamA_score)
+        teamBScoreTextView = findViewById(R.id.teamB_score)
+        scoreSelectorSpinnerA = findViewById(R.id.score_incrementA)
+        scoreSelectorSpinnerB = findViewById(R.id.score_incrementB)
+        scoreIncreaseButtonA = findViewById(R.id.teamA_increment)
+        scoreIncreaseButtonB = findViewById(R.id.teamB_increment)
+        scoreDecreaseButtonA = findViewById(R.id.teamA_decrement)
+        scoreDecreaseButtonB = findViewById(R.id.teamB_decrement)
+        toolbarMenuIcon = findViewById(R.id.toolbar_menu_icon)
 
-        // OnClickListener to increase the scores for Team A
+        val savedScoreTeamA = sharedPreferences.getInt("teamAScore", 0)
+        val savedScoreTeamB = sharedPreferences.getInt("teamBScore", 0)
+
+        teamAScoreTextView.text = savedScoreTeamA.toString()
+        teamBScoreTextView.text = savedScoreTeamB.toString()
+
         scoreIncreaseButtonA.setOnClickListener {
             val scoreIncrement = scoreSelectorSpinnerA.selectedItem.toString().toInt()
             val currentScore = teamAScoreTextView.text.toString().toInt()
             val newScore = currentScore + scoreIncrement
             teamAScoreTextView.text = newScore.toString()
+            sharedPreferences.edit().putInt("teamAScore", newScore).apply()
         }
 
-        // OnClickListener to decrease the scores for Team A
         scoreDecreaseButtonA.setOnClickListener {
             val scoreIncrement = scoreSelectorSpinnerA.selectedItem.toString().toInt()
             val currentScore = teamAScoreTextView.text.toString().toInt()
             val newScore = currentScore - scoreIncrement
             if (newScore >= 0) {
                 teamAScoreTextView.text = newScore.toString()
+                sharedPreferences.edit().putInt("teamAScore", newScore).apply()
             }
         }
 
-        // OnClickListener to increase the scores for Team B
         scoreIncreaseButtonB.setOnClickListener {
             val scoreIncrement = scoreSelectorSpinnerB.selectedItem.toString().toInt()
             val currentScore = teamBScoreTextView.text.toString().toInt()
             val newScore = currentScore + scoreIncrement
             teamBScoreTextView.text = newScore.toString()
+            sharedPreferences.edit().putInt("teamBScore", newScore).apply()
         }
 
-        // OnClickListener to decrease the scores for Team B
         scoreDecreaseButtonB.setOnClickListener {
             val scoreIncrement = scoreSelectorSpinnerB.selectedItem.toString().toInt()
             val currentScore = teamBScoreTextView.text.toString().toInt()
             val newScore = currentScore - scoreIncrement
             if (newScore >= 0) {
                 teamBScoreTextView.text = newScore.toString()
+                sharedPreferences.edit().putInt("teamBScore", newScore).apply()
             }
         }
 
-        // Set click listener on the toolbar menu icon
         toolbarMenuIcon.setOnClickListener { view ->
             showOptionsMenu(view)
         }
     }
 
-    // Method to show the options menu
     private fun showOptionsMenu(view: View) {
         val popupMenu = PopupMenu(this, view)
         popupMenu.menuInflater.inflate(R.menu.options_menu, popupMenu.menu)
         popupMenu.setOnMenuItemClickListener { item ->
             when (item.itemId) {
                 R.id.menu_settings -> {
-                    // Handle opening a new layout with a toggle switch for shared preferences
-                    // Implement this part
+                    sharedPreferences.edit().clear().apply()
+                    teamAScoreTextView.text = "0"
+                    teamBScoreTextView.text = "0"
                     true
                 }
                 R.id.menu_about -> {
-                    showToast("Developoers: Gokul, Kamal, Davinder,  Course Code: JAV1001")
+                    showToast("Developers: Gokul, Kamal, Davinder,  Course Code: JAV1001")
                     true
                 }
                 else -> false
