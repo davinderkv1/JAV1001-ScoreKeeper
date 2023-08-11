@@ -86,7 +86,7 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.menu_about -> {
-                    showToast("Gokul, Kamal, Davinder")
+                    showToast("Developoers: Gokul, Kamal, Davinder,  Course Code: JAV1001")
                     true
                 }
                 else -> false
